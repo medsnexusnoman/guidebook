@@ -48,8 +48,7 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="d-flex">
-                                                    <span
-                                                        class="mdi mdi-link rounded-circle avatar-md fs-2"></span>
+                                                   
     
                                                     <select name="" class="form-control form-select"
                                                         style="width: 100%;" id="dailyDigest">
@@ -80,8 +79,7 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="d-flex">
-                                                    <span
-                                                        class=" fs-2">&nbsp;</span>
+                                                  
     
                                                     <select name="" class="form-control form-select"
                                                         style="width: 100%;" id="dailyDigest">

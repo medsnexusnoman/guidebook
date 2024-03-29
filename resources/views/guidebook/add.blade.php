@@ -140,61 +140,66 @@
                         <p class="mb-0 fs-5 text-muted">Name your guidebook and locate it on the map</p>
                     </div>
                 </div>
-              
+
                 @include('components.guidebook.gudiebook_address_name_details')
-                
+
             </div>
 
-            <div class="mb-8 row">
-                <div class="col-xl-3 col-lg-4 col-md-12 col-12">
-                    <div class="mb-4 mb-lg-0">
-                        <h4 class="mb-1">Arrival & Departure</h4>
-                        <p class="mb-0 fs-5 text-muted">Create and assign arrival & departure cards</p>
+            @if (isset($guidebook))
+                <div class="mb-8 row">
+                    <div class="col-xl-3 col-lg-4 col-md-12 col-12">
+                        <div class="mb-4 mb-lg-0">
+                            <h4 class="mb-1">Arrival & Departure</h4>
+                            <p class="mb-0 fs-5 text-muted">Create and assign arrival & departure cards</p>
+                        </div>
                     </div>
-                </div>
-              
-                @include('components.guidebook.arrival_and_departure')
-                
-            </div>
 
-            <div class="mb-8 row">
-                <div class="col-xl-3 col-lg-4 col-md-12 col-12">
-                    <div class="mb-4 mb-lg-0">
-                        <h4 class="mb-1">House Manual & Recommendations</h4>
-                        <p class="mb-0 fs-5 text-muted">Create, assign, and reorder house manual and recommendation cards</p>
+                    @include('components.guidebook.arrival_and_departure')
+
+                </div>
+
+                <div class="mb-8 row">
+                    <div class="col-xl-3 col-lg-4 col-md-12 col-12">
+                        <div class="mb-4 mb-lg-0">
+                            <h4 class="mb-1">House Manual & Recommendations</h4>
+                            <p class="mb-0 fs-5 text-muted">Create, assign, and reorder house manual and recommendation
+                                cards</p>
+                        </div>
                     </div>
-                </div>
-              
-                @include('components.guidebook.house_manual')
-                
-            </div>
 
-            <div class="mb-8 row">
-                <div class="col-xl-3 col-lg-4 col-md-12 col-12">
-                    <div class="mb-4 mb-lg-0">
-                        <h4 class="mb-1">Customization</h4>
-                        <p class="mb-0 fs-5 text-muted">Add your own branding and configure settings and integrations</p>
+                    @include('components.guidebook.house_manual')
+
+                </div>
+
+                <div class="mb-8 row">
+                    <div class="col-xl-3 col-lg-4 col-md-12 col-12">
+                        <div class="mb-4 mb-lg-0">
+                            <h4 class="mb-1">Customization</h4>
+                            <p class="mb-0 fs-5 text-muted">Add your own branding and configure settings and integrations
+                            </p>
+                        </div>
                     </div>
-                </div>
-              
-                @include('components.guidebook.customization')
-                
-            </div>
 
-            <div class="mb-8 row">
-                <div class="col-xl-3 col-lg-4 col-md-12 col-12">
-                    <div class="mb-4 mb-lg-0">
-                        <h4 class="mb-1">Recommendations-only Guidebook</h4>
-                        <p class="mb-0 fs-5 text-muted">Create a recommendations-only version of this guidebook</p>
-                        <p class="mb-0 fs-5 text-muted">Want to share your recommendations with others without exposing any of your listing information?</p>
-                        <p class="mb-0 fs-5 text-muted">Create a recommendations-only version of your guidebook that you can share widely!</p>
+                    @include('components.guidebook.customization')
+
+                </div>
+
+                <div class="mb-8 row">
+                    <div class="col-xl-3 col-lg-4 col-md-12 col-12">
+                        <div class="mb-4 mb-lg-0">
+                            <h4 class="mb-1">Recommendations-only Guidebook</h4>
+                            <p class="mb-0 fs-5 text-muted">Create a recommendations-only version of this guidebook</p>
+                            <p class="mb-0 fs-5 text-muted">Want to share your recommendations with others without exposing
+                                any of your listing information?</p>
+                            <p class="mb-0 fs-5 text-muted">Create a recommendations-only version of your guidebook that you
+                                can share widely!</p>
+                        </div>
                     </div>
-                </div>
-              
-                @include('components.guidebook.recommendations')
-                
-            </div>
 
+                    @include('components.guidebook.recommendations')
+
+                </div>
+            @endif
 
         </div>
 
@@ -208,82 +213,7 @@
         var map;
         var marker;
 
-        function initMap() {
-            var latlng = {
-                lat: parseFloat(document.getElementById('latitude').value),
-                lng: parseFloat(document.getElementById('longitude').value)
-            };
 
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: latlng
-            });
-
-            // marker = new MarkerWithLabel({
-            //     position: latlng,
-            //     map: map,
-            //     labelContent: document.getElementById('label').value,
-            //     labelAnchor: new google.maps.Point(22, 0),
-            //     labelClass: "labels", // the CSS class for the label
-            //     labelStyle: { opacity: 0.75 }
-            // });
-        }
-
-        // function initAutocomplete() {
-        //     var autocomplete = new google.maps.places.Autocomplete(
-        //         document.getElementById('address'), {
-        //             types: ["address"]
-        //         }
-        //     );
-
-        //     autocomplete.addListener('place_changed', function() {
-        //         var place = autocomplete.getPlace();
-
-        //         if (!place.geometry) {
-        //             return;
-        //         }
-
-        //         var city = '';
-        //         var state = '';
-        //         var country = '';
-        //         var postal_code = '';
-        //         var label = place.name; // Use the place name as label by default
-        //         var latitude = place.geometry.location.lat();
-        //         var longitude = place.geometry.location.lng();
-
-        //         for (var i = 0; i < place.address_components.length; i++) {
-        //             var component = place.address_components[i];
-        //             var types = component.types;
-        //             if (types.includes('locality')) {
-        //                 city = component.long_name;
-        //             } else if (types.includes('administrative_area_level_1')) {
-        //                 state = component.short_name;
-        //             } else if (types.includes('country')) {
-        //                 country = component.long_name;
-        //             } else if (types.includes('postal_code')) {
-        //                 postal_code = component.long_name;
-        //             }
-        //         }
-
-        //         document.getElementById('city').value = city;
-        //         document.getElementById('state').value = state;
-        //         document.getElementById('country').value = country;
-        //         document.getElementById('postal_code').value = postal_code;
-        //         document.getElementById('latitude').value = latitude;
-        //         document.getElementById('longitude').value = longitude;
-
-        //         // Update map and marker
-        //         map.setCenter({
-        //             lat: latitude,
-        //             lng: longitude
-        //         });
-        //         marker.setPosition({
-        //             lat: latitude,
-        //             lng: longitude
-        //         });
-        //         marker.setLabel(label);
-        //     });
-        // }
 
         function initAutocomplete() {
             var autocomplete = new google.maps.places.Autocomplete(
@@ -346,17 +276,8 @@
                 document.getElementById('postal_code').value = postal_code;
                 document.getElementById('latitude').value = latitude;
                 document.getElementById('longitude').value = longitude;
+                initMap(label,latitude,longitude);
 
-                // Update map and marker
-                // map.setCenter({
-                //     lat: latitude,
-                //     lng: longitude
-                // });
-                // marker.setPosition({
-                //     lat: latitude,
-                //     lng: longitude
-                // });
-                // marker.setLabel(label);
             });
         }
     </script>
@@ -365,56 +286,42 @@
         src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=initMap">
     </script>
 
-    {{-- <script>
-        function initAutocomplete() {
-            // Initialize the Autocomplete service
-            var autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById('address'), {
-                    types: ["address"]
-                }
-            );
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap&v=weekly" defer>
+    </script> --}}
 
-            // Add an event listener when a place is selected from the autocomplete dropdown
-            autocomplete.addListener('place_changed', function() {
-                var place = autocomplete.getPlace();
+    <script>
+    var map;
+    var marker;
+    var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let labelIndex = 0;
 
-                if (!place.geometry) {
-                    // Place details not found for the input address.
-                    return;
-                }
 
-                var city = '';
-                var state = '';
-                var country = '';
-                var postal_code = '';
-                var label = place.name; // Use the place name as label by default
-                var latitude = place.geometry.location.lat();
-                var longitude = place.geometry.location.lng();
+    function initMap(label, latitude, longitude) {
+        const location = {
+            lat: latitude,
+            lng: longitude
+        };
 
-                for (var i = 0; i < place.address_components.length; i++) {
-                    var component = place.address_components[i];
-                    var types = component.types;
-                    if (types.includes('locality')) {
-                        city = component.long_name;
-                    } else if (types.includes('administrative_area_level_1')) {
-                        state = component.short_name;
-                    } else if (types.includes('country')) {
-                        country = component.long_name;
-                    } else if (types.includes('postal_code')) {
-                        postal_code = component.long_name;
-                    }
-                }
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: location,
+        });
 
-                document.getElementById('city').value = city;
-                document.getElementById('state').value = state;
-                document.getElementById('country').value = country;
-                document.getElementById('postal_code').value = postal_code;
-                document.getElementById('label').value = label;
-                document.getElementById('latitude').value = latitude;
-                document.getElementById('longitude').value = longitude;
-            });
-        }
+        google.maps.event.addListener(map, "click", (event) => {
+            addMarker(event.latLng, map, label);
+        });
+
+        addMarker(location, map, label);
+    }
+
+    function addMarker(location, map, label) {
+        new google.maps.Marker({
+            position: location,
+            label: label,
+            map: map,
+        });
+    }
+
+        // window.initMap = initMap;
     </script>
-    <script async defer onload="initAutocomplete()"
-        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script> --}}
 @endsection

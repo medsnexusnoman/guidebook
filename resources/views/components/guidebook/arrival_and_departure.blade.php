@@ -28,7 +28,7 @@
                                             </div>
                                         </div>
                                         <div class="col-2">
-                                            <a class="text-muted text-primary-hover me-3" href="/pages/profile#">
+                                            <a class="text-muted text-primary-hover me-3" href="{{route('guidebooks.createCheckin',$guidebook->id)}}">
                                                 <span class="mdi mdi-plus fs-2"></span>
                                             </a>
                                             <a class="text-muted text-primary-hover" href="/pages/profile#">
@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                            <a class="text-muted text-primary-hover me-3" href="/pages/profile#">
+                                            <a class="text-muted text-primary-hover me-3" href="{{route('guidebooks.createDirection',$guidebook->id)}}">
                                                 <span class="mdi mdi-plus fs-2"></span>
                                             </a>
                                             <a class="text-muted text-primary-hover" href="/pages/profile#">

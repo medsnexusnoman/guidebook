@@ -13,6 +13,22 @@ return new class extends Migration
     {
         Schema::create('guide_books', function (Blueprint $table) {
             $table->id();
+            $table->text('address');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->text('apartment_no')->nullable();
+            $table->text('street_no')->nullable();
+            $table->text('street_name')->nullable();
+            $table->text('city');
+            $table->text('country');
+            $table->text('postal_code');
+            $table->text('address_linking_rule');
+            $table->text('state');
+            $table->text('descriptive_name');
+            $table->text('image')->nullable();
+
+            $table->unsignedBigInteger('user_id');
+
             $table->timestamps();
         });
     }
