@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('directions', function (Blueprint $table) {
+        Schema::create('check_in_options', function (Blueprint $table) {
             $table->id();
-            $table->string('name_of_card');
-            $table->text('general_direction');
-            $table->unsignedBigInteger('guidebook_id');
-            $table->unsignedBigInteger('user_id');
+            $table->string("name");
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('directions');
+        Schema::dropIfExists('check_in_options');
     }
 };

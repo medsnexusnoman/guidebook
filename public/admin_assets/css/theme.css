@@ -37248,8 +37248,8 @@ body {
 }
 
 .avatar-sm {
-  width: 2rem;
-  height: 2rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .avatar-md {
@@ -37943,3 +37943,4 @@ div.code-toolbar > .toolbar > .toolbar-item > span:hover, div.code-toolbar > .to
 .tab-card-header > .tab-content {
   padding-bottom: 0;
 }
+

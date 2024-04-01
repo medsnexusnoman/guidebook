@@ -19,7 +19,7 @@
 
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
+                                                    <option selected disabled>Host Introduction</option>
                                                     <option value="One" class="text-dark">One</option>
                                                     <option value="Two" class="text-dark">Two</option>
                                                     <option value="Three" class="text-dark">Three</option>
@@ -43,7 +43,7 @@
 
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
+                                                    <option selected disabled>Which Theme would you like to apply to this guidebook?</option>
                                                     <option value="One" class="text-dark">One</option>
                                                     <option value="Two" class="text-dark">Two</option>
                                                     <option value="Three" class="text-dark">Three</option>
@@ -67,7 +67,7 @@
 
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
+                                                    <option selected disabled>Upgrade to add a custom domain to this guidebook</option>
                                                     <option value="One" class="text-dark">One</option>
                                                     <option value="Two" class="text-dark">Two</option>
                                                     <option value="Three" class="text-dark">Three</option>

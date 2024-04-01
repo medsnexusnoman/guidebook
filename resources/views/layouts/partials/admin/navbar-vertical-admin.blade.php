@@ -10,14 +10,14 @@
              <li class="nav-item">
                  <a class="nav-link has-arrow "
                      >
-                     <i data-feather="home" class="nav-icon icon-xs me-2"></i>Admin Dashboard
+                     <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
                  </a>
 
              </li>
              <!-- Nav item -->
-             <li class="nav-item">
+             {{-- <li class="nav-item">
                  <div class="navbar-heading">Front Section</div>
-             </li>
+             </li> --}}
              <!-- Nav item -->
              {{-- <li class="nav-item">
                 <a class="nav-link has-arrow " href="#!"

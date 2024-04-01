@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string("earlist_time");
             $table->boolean('check_in_window');
             $table->text('gain_access_to_property');
+            $table->unsignedBigInteger('guidebook_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

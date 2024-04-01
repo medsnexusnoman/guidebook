@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card p-md-6 p-3">
                         <div class="card-body">
-                            <form action="{{route('guidebooks.storeDirection')}}" method="POST">
+                            <form action="{{ route('guidebooks.storeDirection') }}" method="POST">
                                 @csrf
                                 <div class="row mt-3">
                                     <div class="col-12">
@@ -22,8 +22,8 @@
                                     </div>
                                 </div>
 
-                                <input name="guidebook_id" value="{{$guidebook->id}}" type="hidden">
-                              
+                                <input name="guidebook_id" value="{{ $guidebook->id }}" type="hidden">
+
 
 
                                 <div class="row mt-3">
@@ -52,79 +52,17 @@
                                                 <p>Each of these items will be presented under the heading "Recommended
                                                     approaches"</p>
                                                 <div class="row">
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[]" value="1" type="checkbox"
-                                                                id="customChecktellMeAirport" class="form-check-input">
-                                                            <label for="customChecktellMeAirport"
-                                                                class="form-check-label">To/from airport</label>
+                                                    @foreach ($direction as $key => $item)
+                                                        <div class="col-md-4 col-12">
+                                                            <div class="form-check mt-2">
+                                                                <input name="directions[]" value="{{ $item->id }}"
+                                                                    type="checkbox" id="d-{{ $key }}"
+                                                                    class="form-check-input">
+                                                                <label for="d-{{ $key }}"
+                                                                    class="form-check-label">{{ $item->name }}</label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[]" value="1" type="checkbox"
-                                                                id="customChecktellMeTaxi" class="form-check-input">
-                                                            <label for="customChecktellMeTaxi"
-                                                                class="form-check-label">Taxi</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[]" value="1" type="checkbox"
-                                                                id="customChecktellMeUber" class="form-check-input">
-                                                            <label for="customChecktellMeUber"
-                                                                class="form-check-label">Uber</label>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Repeat the structure for other checkboxes -->
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[]" value="1" type="checkbox"
-                                                                id="customChecktellMeLyft" class="form-check-input">
-                                                            <label for="customChecktellMeLyft"
-                                                                class="form-check-label">Lyft</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[]" value="1" type="checkbox"
-                                                                id="customChecktellMeBus" class="form-check-input">
-                                                            <label for="customChecktellMeBus"
-                                                                class="form-check-label">Bus</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[]" value="1" type="checkbox"
-                                                                id="customChecktellMeTrain" class="form-check-input">
-                                                            <label for="customChecktellMeTrain"
-                                                                class="form-check-label">Train</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[]" value="1" type="checkbox"
-                                                                id="customChecktellMeFerry" class="form-check-input">
-                                                            <label for="customChecktellMeFerry"
-                                                                class="form-check-label">Ferry-boat</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[][Pickup][value]" value="1" type="checkbox"
-                                                                id="customChecktellMePickup" class="form-check-input">
-                                                            <label for="customChecktellMePickup"
-                                                                class="form-check-label">Pickup</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-12">
-                                                        <div class="form-check mt-2">
-                                                            <input name="methodCheckbox[][Driving][value]" value="1" type="checkbox"
-                                                                id="customChecktellMeDriving" class="form-check-input">
-                                                            <label for="customChecktellMeDriving"
-                                                                class="form-check-label">Driving</label>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
 
                                                     <div class="row mt-3">
                                                         <div class="col-12">
@@ -145,6 +83,68 @@
 
                                     </div>
                                 </div>
+
+                                <div class="row mt-3 d-none" id="r_to_from_airport">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests travelling to or from the airport?</h4>
+                                        <textarea id="to_from_airport" name="to_from_airport"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3 d-none" id="r_taxi">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests travelling by taxi?</h4>
+                                        <textarea id="taxi" name="taxi"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3 d-none" id="r_uber">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests travelling by uber?</h4>
+                                        <textarea id="uber" name="uber"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3 d-none" id="r_lyft">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests travelling by lyft?</h4>
+                                        <textarea id="lyft" name="lyft"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mt-3 d-none" id="r_bus">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests travelling by bus?</h4>
+                                        <textarea id="bus" name="bus"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mt-3 d-none" id="r_train">
+                                    <div class="col-12">
+                                        <h4>
+                                            What directions would you give guests travelling by train?</h4>
+                                        <textarea id="train" name="train"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mt-3 d-none" id="r_ferry_boat">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests travelling by ferry-boat?</h4>
+                                        <textarea id="ferry_boat" name="ferry_boat"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mt-3 d-none" id="r_pickup">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests who are getting picked up?</h4>
+                                        <textarea id="pickup" name="pickup"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mt-3 d-none" id="r_driving">
+                                    <div class="col-12">
+                                        <h4>What directions would you give guests who are driving themselves?</h4>
+                                        <textarea id="driving" name="driving"></textarea>
+                                    </div>
+                                </div>
+
 
                                 <div class="row mt-3">
                                     <div class="col-12">
@@ -182,43 +182,37 @@
 
 @section('scripts')
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const selectAllCheckbox = document.getElementById("customChecktellMeSelectAll");
-            const checkboxContainer = document.getElementById("checkboxContainer");
+        $(document).ready(function() {
+            $('#summernote').summernote();
+            $('#to_from_airport').summernote();
+        });
+    </script>
 
-            selectAllCheckbox.addEventListener("change", function() {
-                const methodCheckboxes = document.querySelectorAll("input[name='methodCheckbox']");
-                methodCheckboxes.forEach(function(checkbox) {
-                    checkbox.checked = selectAllCheckbox.checked;
-                });
-            });
-
-            const methodCheckboxes = document.querySelectorAll("input[name='methodCheckbox']");
-            methodCheckboxes.forEach(function(checkbox) {
-                checkbox.addEventListener("change", function() {
-                    const methodName = this.id.replace("customChecktellMe", "");
-                    const existingSummernote = document.getElementById(`summernote-${methodName}`);
-
-                    if (this.checked) {
-                        if (!existingSummernote) {
-                            const newSummernote = document.createElement("textarea");
-                            newSummernote.id = `summernote-${methodName}`;
-                            newSummernote.name = `directions-${methodName}`;
-                            checkboxContainer.appendChild(newSummernote);
-                            $(`#summernote-${methodName}`).summernote(); // Initialize Summernote
-                        }
-                    } else {
-                        if (existingSummernote) {
-                            existingSummernote.parentNode.removeChild(existingSummernote);
-                        }
-                    }
-                });
-            });
-
-            // Initialize Summernote for existing fields
-            $(document).ready(function() {
-                $('textarea[id^="summernote"]').summernote();
+    <script>
+        document.getElementById('customChecktellMeSelectAll').addEventListener('change', function() {
+            var checkboxes = document.querySelectorAll('input[name="directions[]"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = document.getElementById('customChecktellMeSelectAll').checked;
             });
         });
     </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.direction-checkbox');
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const directionId = checkbox.value;
+                const textareaId = 'r_' + directionId;
+
+                const textarea = document.getElementById(textareaId);
+                if (textarea) {
+                    textarea.classList.toggle('d-none', !checkbox.checked);
+                }
+            });
+        });
+    });
+</script>
+
 @endsection

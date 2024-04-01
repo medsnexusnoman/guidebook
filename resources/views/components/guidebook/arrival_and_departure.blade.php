@@ -17,13 +17,15 @@
                                             <div class="d-flex">
                                                 <span
                                                     class=" mdi mdi-clock-outline rounded-circle avatar-md fs-2"></span>
-
+                                                   
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
-                                                    <option value="One" class="text-dark">One</option>
-                                                    <option value="Two" class="text-dark">Two</option>
-                                                    <option value="Three" class="text-dark">Three</option>
+                                                    <option disabled selected>Check-in card</option>
+                                                    @foreach ($data['check_in_card'] as $item)
+                                                  
+                                                        <option value="{{$item->id}}" class="text-dark">{{$item->name_of_the_card}}</option>
+                                                    @endforeach
+                                                  
                                                 </select>
                                             </div>
                                         </div>
@@ -45,10 +47,12 @@
 
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
-                                                    <option value="One" class="text-dark">One</option>
-                                                    <option value="Two" class="text-dark">Two</option>
-                                                    <option value="Three" class="text-dark">Three</option>
+                                                    <option disabled selected>Directions card</option>
+                                                    @foreach ($data['direction'] as $item)
+                                                  
+                                                        <option value="{{$item->id}}" class="text-dark">{{$item->name_of_the_card}}</option>
+                                                    @endforeach
+                                                   
                                                 </select>
                                             </div>
                                         </div>
@@ -70,10 +74,12 @@
 
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
-                                                    <option value="One" class="text-dark">One</option>
-                                                    <option value="Two" class="text-dark">Two</option>
-                                                    <option value="Three" class="text-dark">Three</option>
+                                                    <option disabled selected>Parking card</option>
+                                                    @foreach ($data['parking_card'] as $item)
+                                                  
+                                                        <option value="{{$item->id}}" class="text-dark">{{$item->name_of_the_card}}</option>
+                                                    @endforeach
+                                                    
                                                 </select>
                                             </div>
                                         </div>
@@ -95,10 +101,9 @@
 
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
+                                                    <option disabled selected>Wifi card</option>
                                                     <option value="One" class="text-dark">One</option>
-                                                    <option value="Two" class="text-dark">Two</option>
-                                                    <option value="Three" class="text-dark">Three</option>
+                                                  
                                                 </select>
                                             </div>
                                         </div>
@@ -137,15 +142,17 @@
 
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
-                                                    <option value="Everyday" class="text-dark">Everyday</option>
-                                                    <option value="One" class="text-dark">One</option>
-                                                    <option value="Two" class="text-dark">Two</option>
-                                                    <option value="Three" class="text-dark">Three</option>
+                                                    <option disabled selected>Checkout card</option>
+                                                    @foreach ($data['departure_card'] as $item)
+                                                  
+                                                        <option value="{{$item->id}}" class="text-dark">{{$item->name_of_the_card}}</option>
+                                                    @endforeach
+                                                   
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                            <a class="text-muted text-primary-hover me-3" href="/pages/profile#">
+                                            <a class="text-muted text-primary-hover me-3" href="{{route('guidebooks.createCheckout',$guidebook->id)}}">
                                                 <span class="mdi mdi-plus fs-2"></span>
                                             </a>
                                             <a class="text-muted text-primary-hover" href="/pages/profile#">

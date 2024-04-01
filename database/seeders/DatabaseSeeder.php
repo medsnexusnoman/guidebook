@@ -12,6 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            CheckInOptionsSeeder::class,
+            CheckInpropertySeeder::class,
+            UserSeeder::class,
+            ParkingOptionPropertySeeder::class
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

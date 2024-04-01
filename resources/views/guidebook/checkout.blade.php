@@ -18,7 +18,7 @@
                                     </button>
                                 </div>
                             @endif
-                            <form action="{{ route('guidebooks.storeCheckins', ['id' => $guidebook->id]) }}" method="POST">
+                            <form action="{{ route('guidebooks.storeCheckout', ['id' => $guidebook->id]) }}" method="POST">
                                 @csrf
                                 <div class="row mt-3">
                                     <div class="col-12">
@@ -41,9 +41,8 @@
 
                                 <div class="row mt-3">
                                     <div class="col-12">
-                                        <h4>When is the earliest time guests can check in?
+                                        <h4>What time do you want to tell guests to check out by?
                                         </h4>
-                                        <p>This will activate tabs for each language in the editors below</p>
 
                                         <div class=" col-12 col-md-3">
                                             <input type="time" class="form-control" placeholder="Card name"
@@ -54,48 +53,18 @@
                                     </div>
                                 </div>
 
-                                <div class="row mt-3">
-                                    <div class="col-12">
-                                        <h4>Do you want a check-in window instead of a single time?</h4>
-                                        <p>This will activate tabs for each language in the editors below</p>
-                                        <div class="col-md-8 col-12">
-                                            <div class="form-check-inline mt-2 form-check">
-                                                <input name="customRadioInline" value="1" type="radio"
-                                                    id="customRadioInline1" class="form-check-input">
-                                                <label for="customRadioInline1" class="form-check-label">Yes</label>
-                                            </div>
-                                            <div class="form-check-inline form-check">
-                                                <input name="customRadioInline" type="radio" value="0"
-                                                    id="customRadioInline2" class="form-check-input">
-                                                <label for="customRadioInline2" class="form-check-label">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                           
 
                                 <div class="row mt-3">
                                     <div class="col-12">
-                                        <h4>When is the latest time guests can check in?
-                                        </h4>
-
-                                        <div class=" col-12  col-md-3">
-                                            <input type="time" class="form-control" placeholder="Card name"
-                                                id="check_in" name="check_in" required="">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="row mt-3">
-                                    <div class="col-12">
-                                        <h4>Select the statements that best describe your policy on early check-in
+                                        <h4>Select the statements that best describe your late checkout policy
                                         </h4>
 
                                         <div class="mb-3 row">
 
                                             <div class="col-md-8 col-12">
-                                                @foreach ($checkin['early_check'] as $key => $check)
+                                                @foreach ($checkout['policies'] as $key => $check)
                                                     <div class="m-2">
                                                         <div class="form-check ">
                                                             <input name="early[]" type="checkbox" id="e-{{ $key }}"
@@ -116,17 +85,16 @@
 
                                 <div class="row mt-3">
                                     <div class="col-12">
-                                        <h4>Select the statements that best describe how your guests will gain access to the
-                                            property
+                                        <h4>What should guests do before checking out?
                                         </h4>
 
                                         <div class="mb-3 row">
 
                                             <div class="col-md-8 col-12">
-                                                @foreach ($checkin['property'] as $key => $property)
+                                                @foreach ($checkout['before_checking'] as $key => $property)
                                                     <div class="m-2">
                                                         <div class="form-check ">
-                                                            <input name="property[]" value="{{ $property['id'] }}"
+                                                            <input name="before_checking[]" value="{{ $property['id'] }}"
                                                                 type="checkbox" id="p-{{ $key }}"
                                                                 class="form-check-input">
                                                             <label for="p-{{ $key }}"
@@ -146,18 +114,15 @@
 
                                 <div class="row mt-3">
                                     <div class="col-12">
-                                        <h4>What information does your guest need to know in order to gain access to the
-                                            property?
+                                        <h4>Additional checkout information
                                         </h4>
-                                        <p>Do not include any secure information in this field, as this info will be seen by
-                                            guests who are NOT viewing the guidebook securely.
-                                        </p>
-                                        <textarea id="summernote" name="order_to_gain_property"></textarea>
+                                       
+                                        <textarea id="summernote" name="additional_checkout_information"></textarea>
 
                                     </div>
                                 </div>
 
-                                {{-- <div class="row mt-5">
+                                <div class="row mt-5">
                                     <div class="col-12">
                                         <h4>Which guidebooks should this card appear on?
                                         </h4>
@@ -167,7 +132,7 @@
                                         </p>
 
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="row">
                                     <div class="col-xl-3 col-md-12">
                                         <button type="submit" class="btn btn-primary">Save Changes</button>

@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('directions', function (Blueprint $table) {
+        Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->string('name_of_card');
-            $table->text('general_direction');
+            $table->string('name_of_the_card');
+            $table->string("checkout_time");
+            $table->string("additional_information");
             $table->unsignedBigInteger('guidebook_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('directions');
+        Schema::dropIfExists('checkouts');
     }
 };

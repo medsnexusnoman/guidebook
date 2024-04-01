@@ -398,7 +398,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <div class=" mb-6 mt-3">
                             <h4 class="mb-1">What image do you want to feature on the guidebook?
@@ -407,7 +407,7 @@
 
 
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-xl-3 col-md-12">
                     <button type="submit" class="btn btn-primary">Save Changes</button>
