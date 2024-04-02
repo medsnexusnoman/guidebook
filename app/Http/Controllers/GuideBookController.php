@@ -342,4 +342,17 @@ class GuideBookController extends BaseController
         $direction->save();
         return redirect()->back()->with(["success" => "Saved"]);
     }
+
+    public function view($id)
+    {
+        $guidebook = GuideBook::findOrFail($id);
+        
+        $data = [
+            "categories" => Category::all(),
+            "early_check" => CheckInOptions::all(),
+        ];
+
+        $guidebooks = GuideBook::where('user_id', $this->userId())->get();
+        return view('guidebook.guidebook_show')->with(['guidebook' => $guidebook, "data" => $data,'guidebooks' => $guidebooks]);
+    }
 }

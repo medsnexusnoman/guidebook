@@ -33,6 +33,7 @@ Route::middleware(['auth','user-role:admin'])->group(function()
     Route::get("/admin/home",[App\Http\Controllers\HomeController::class, 'adminHome'])->name("admin.home");
     Route::get('guidebooks',[GuideBookController::class,'index'])->name('guidebooks');
     Route::get('guidebook/{id}',[GuideBookController::class,'show'])->name('guidebook.show');
+    Route::get('guidebook/show/{id}',[GuideBookController::class,'view'])->name('guidebook.view');
 
     Route::post('guidebooks/store',[GuideBookController::class,'storeAddress'])->name('guidebooks.storeAddress');
     
