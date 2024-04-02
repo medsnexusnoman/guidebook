@@ -51,7 +51,13 @@ Route::middleware(['auth','user-role:admin'])->group(function()
 
     Route::post('guidebooks/checkouts/store',[GuideBookController::class,'storeCheckout'])->name('guidebooks.storeCheckout');
     Route::get('guidebooks/checkouts/{id}/create',[GuideBookController::class,'createCheckout'])->name('guidebooks.createCheckout');
+
+
+    Route::post('guidebooks/recommendation_card/store',[GuideBookController::class,'storeRecommendationCard'])->name('guidebooks.storeRecommendationCard');
+    Route::get('guidebooks/recommendation_card/{id}/create',[GuideBookController::class,'createRecommendationCard'])->name('guidebooks.createRecommendationCard');
    
+    Route::post('guidebooks/host_intro/store',[GuideBookController::class,'storeHostIntro'])->name('guidebooks.storeHostIntro');
+    Route::get('guidebooks/host_intro/{id}/create',[GuideBookController::class,'createHostIntro'])->name('guidebooks.createHostIntro');
 });
 
 Route::get('design',function(){

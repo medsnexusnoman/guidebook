@@ -50,7 +50,7 @@
                                                     <option disabled selected>Directions card</option>
                                                     @foreach ($data['direction'] as $item)
                                                   
-                                                        <option value="{{$item->id}}" class="text-dark">{{$item->name_of_the_card}}</option>
+                                                        <option value="{{$item->id}}" class="text-dark">{{$item->name_of_card}}</option>
                                                     @endforeach
                                                    
                                                 </select>
@@ -84,7 +84,7 @@
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                            <a class="text-muted text-primary-hover me-3" href="/pages/profile#">
+                                            <a class="text-muted text-primary-hover me-3" href="{{route('guidebooks.createParking',$guidebook->id)}}">
                                                 <span class="mdi mdi-plus fs-2"></span>
                                             </a>
                                             <a class="text-muted text-primary-hover" href="/pages/profile#">
@@ -108,7 +108,7 @@
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                            <a class="text-muted text-primary-hover me-3" href="/pages/profile#">
+                                            <a class="text-muted text-primary-hover me-3" href="{{route('guidebooks.createWifi',$guidebook->id)}}">
                                                 <span class="mdi mdi-plus fs-2"></span>
                                             </a>
                                             <a class="text-muted text-primary-hover" href="/pages/profile#">

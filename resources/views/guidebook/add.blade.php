@@ -210,6 +210,20 @@
 
 @section('scripts')
     <script>
+        $(document).ready(function() {
+            @if (isset($guidebook))
+                var mapsUrl = "https://www.google.com/maps?q=" + encodeURIComponent("{{$guidebook->street_no}}" + " " + "{{$guidebook->street_name}}" +", " + "{{$guidebook->city}}" + ", " + "{{$guidebook->state}}" + ", " + "{{$guidebook->country}}" + " " + "{{$guidebook->postal_code}}");
+
+                document.getElementById("google_map_address").setAttribute("href", mapsUrl);
+                document.getElementById("google_map_address").textContent = "{{$guidebook->street_no}}" + " " + "{{$guidebook->street_name}}" +", " + "{{$guidebook->city}}" + ", " + "{{$guidebook->state}}" + ", " + "{{$guidebook->country}}" + " " ;
+
+                initMap("{{ $guidebook->address }}", {{ floatval($guidebook->latitude) }},
+                    {{ floatval($guidebook->longitude) }});
+            @endif
+        });
+    </script>
+
+    <script>
         var map;
         var marker;
 
@@ -276,11 +290,13 @@
                 document.getElementById('postal_code').value = postal_code;
                 document.getElementById('latitude').value = latitude;
                 document.getElementById('longitude').value = longitude;
-                initMap(label,latitude,longitude);
+                initMap(label, latitude, longitude);
 
             });
         }
     </script>
+
+
 
     <script async defer onload="initAutocomplete()"
         src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=initMap">
@@ -290,37 +306,37 @@
     </script> --}}
 
     <script>
-    var map;
-    var marker;
-    var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let labelIndex = 0;
+        var map;
+        var marker;
+        var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let labelIndex = 0;
 
 
-    function initMap(label, latitude, longitude) {
-        const location = {
-            lat: latitude,
-            lng: longitude
-        };
+        function initMap(label, latitude, longitude) {
+            const location = {
+                lat: latitude,
+                lng: longitude
+            };
 
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
-            center: location,
-        });
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: location,
+            });
 
-        google.maps.event.addListener(map, "click", (event) => {
-            addMarker(event.latLng, map, label);
-        });
+            google.maps.event.addListener(map, "click", (event) => {
+                addMarker(event.latLng, map, label);
+            });
 
-        addMarker(location, map, label);
-    }
+            addMarker(location, map, label);
+        }
 
-    function addMarker(location, map, label) {
-        new google.maps.Marker({
-            position: location,
-            label: label,
-            map: map,
-        });
-    }
+        function addMarker(location, map, label) {
+            new google.maps.Marker({
+                position: location,
+                label: label,
+                map: map,
+            });
+        }
 
         // window.initMap = initMap;
     </script>

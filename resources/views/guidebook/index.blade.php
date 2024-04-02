@@ -61,15 +61,19 @@
                                         <tr>
 
                                             <td class="ps-1">
-                                                <div class="d-flex align-items-center aligin-items-center">
-                                                    <a href="#!"><img
-                                                            src="https://w7.pngwing.com/pngs/753/432/png-transparent-user-profile-2018-in-sight-user-conference-expo-business-default-business-angle-service-people-thumbnail.png"
-                                                            alt="Image" class="avatar avatar-sm rounded-circle"></a>
-                                                    <div class="ms-2">
-                                                        <h5 class="mb-0"> <a href="#!" class="text-inherit">{{$guidebook->descriptive_name}}</a></h5>
-                                                        <p>Share This</p>
+                                                <a href="{{ route('guidebook.show', $guidebook->id) }}">
+                                                    <div class="d-flex align-items-center aligin-items-center">
+                                                       <img
+                                                                src="https://w7.pngwing.com/pngs/753/432/png-transparent-user-profile-2018-in-sight-user-conference-expo-business-default-business-angle-service-people-thumbnail.png"
+                                                                alt="Image" class="avatar avatar-sm rounded-circle">
+                                                        <div class="ms-2">
+                                                            <h5 class="mb-0"> <a href="#!"
+                                                                    class="text-inherit">{{ $guidebook->descriptive_name }}</a>
+                                                            </h5>
+                                                            <p>Share This</p>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </a>
                                             </td>
 
 

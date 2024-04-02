@@ -20,14 +20,15 @@
                                                 <select name="" class="form-control form-select"
                                                     style="width: 100%;" id="dailyDigest">
                                                     <option selected disabled>Host Introduction</option>
-                                                    <option value="One" class="text-dark">One</option>
-                                                    <option value="Two" class="text-dark">Two</option>
-                                                    <option value="Three" class="text-dark">Three</option>
+                                                    @foreach ($data['hostintros'] as $item)
+                                                  
+                                                        <option value="{{$item->id}}" class="text-dark">{{$item->name_of_card}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-2">
-                                            <a class="text-muted text-primary-hover me-3" href="/pages/profile#">
+                                            <a class="text-muted text-primary-hover me-3" href="{{route('guidebooks.createHostIntro',$guidebook->id)}}">
                                                 <span class="mdi mdi-plus fs-2"></span>
                                             </a>
                                             <a class="text-muted text-primary-hover" href="/pages/profile#">

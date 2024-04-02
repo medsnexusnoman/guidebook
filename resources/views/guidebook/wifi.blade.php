@@ -123,14 +123,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-5">
-                                <div class="col-12">
-                                    <h4>Which guidebooks should this card appear on?
-                                    </h4>
-                                    <p>Note: Selecting a guidebook here will remove any other card of this type from that guidebook.
+                            @include('components.guidebook.other.guidebook_card')
 
-                                    </p>
-                                   
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Save </button>
                                 </div>
                             </div>
 

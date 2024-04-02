@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             CheckInOptionsSeeder::class,
             CheckInpropertySeeder::class,
             UserSeeder::class,
-            ParkingOptionPropertySeeder::class
+            ParkingOptionPropertySeeder::class,
+            CategortSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

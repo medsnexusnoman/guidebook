@@ -225,7 +225,7 @@
                             <div class="card-footer">
                                 <div class="d-flex align-items-center">
                                     <div class="">
-                                        <a href="">CREATE RECOMMENDATION CARD</a>
+                                        <a href="{{route('guidebooks.createRecommendationCard',$guidebook->id)}}">CREATE RECOMMENDATION CARD</a>
                                     </div>
                                     <div class="ms-2">
                                         <a href="" class="btn btn-danger">RECOMMENDATIONS WIZARD</a>
