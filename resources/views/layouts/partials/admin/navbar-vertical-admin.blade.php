@@ -1,5 +1,5 @@
  <!-- Sidebar -->
- <nav class="navbar-vertical navbar">
+ <nav class="navbar-vertical navbar " style="boreder-right:1px solid #fff !important;background-color: #FFF">
      <div class="nav-scroller">
          <!-- Brand logo -->
          <a class="navbar-brand">

@@ -64,3 +64,5 @@ Route::middleware(['auth','user-role:admin'])->group(function()
 Route::get('design',function(){
     return view('guidebook.design');
 });
+
+Route::get('guidebook/show/{id}',[GuideBookController::class,'view'])->name('guidebook.view');
